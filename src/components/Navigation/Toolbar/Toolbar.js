@@ -5,10 +5,14 @@ import './Toolbar.css';
 
 
 const Toolbar = () => (
-    <header className='Toolbar'> 
+    <header className='Toolbar'>
         <div>Menu</div>
-        <Logo />
-        <NavigationItems></NavigationItems>
+
+        <div className='Logo_1'><Logo /></div>
+
+        <nav className='DesktopOnly'>
+            <NavigationItems></NavigationItems>
+        </nav>
     </header>
 );
 
