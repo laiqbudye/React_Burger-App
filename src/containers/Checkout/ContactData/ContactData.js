@@ -80,16 +80,6 @@ class ContactData extends Component{
                 },
                 valid: false,
                 touched: false
-            },
-            deliveryMethod: {
-                elementType: 'select',
-                elementConfig: {
-                    options: [
-                        {value: 'fastest', displayValue: 'Fastest'},
-                        {value: 'cheapest', displayValue: 'Cheapest'}
-                    ]
-                },
-                value: ''
             }
         },
         loading: false   
