@@ -82,7 +82,8 @@ class ContactData extends Component{
                 touched: false
             }
         },
-        loading: false   
+        loading: false,
+        formIsValid: false
     }
 
     checkValidity(value, rules) {
@@ -141,7 +142,13 @@ class ContactData extends Component{
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedFormElement.touched = true;
         updatedOrderForm[inputIdentifier] = updatedFormElement;
-        this.setState({orderForm: updatedOrderForm});
+
+        let formIsValid = true;
+        for (let inputIdentifier in updatedOrderForm) {
+            formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;    // this is done for checking all the fields in the form are valid or not. looping all i/p elements
+        }
+
+        this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
     }
 
 
@@ -167,7 +174,7 @@ class ContactData extends Component{
                     invalid={!formElement.config.valid}
                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
             ))}
-            <Button btnType="Success">ORDER</Button>
+            <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
         </form>
 
         )

@@ -26,7 +26,7 @@ const FormInput = (props) => {
                 value={props.value}
                 onChange={props.changed} />;
             break;
-        case 'select':
+        case 'select':    //created method for drop-downs.... for future use
             inputElement = (
                 <select
                     className={inputClasses}
